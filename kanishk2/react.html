@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>reactjs Search Results</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- our script must have type="text/babel" for Babel to work -->
+    <script type="text/babel">
+      ReactDOM.render(
+        <section>
+        <div>
+        <h1>Sample page in react</h1>
+        <div>
+          React makes it painless to create interactive UIs.
+        </div>
+        <a href="index.html">Go Back</a>
+        <a href="react2.html">Go Next</a>
+      </div>    
+        </section>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>

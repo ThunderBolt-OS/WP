@@ -1,33 +1,78 @@
-import React from "react";
+import { useForm } from "react-hook-form";
+import "./App.css";
 
-const Form = () => {
+function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "all",
+  });
+
+  const onSubmit = (data) => console.log(data);
+
+  console.log(errors);
+
   return (
-    <div className="container">
-      <form action="">
-        <h1>login form</h1>
-        <div className="form-body">
-          <div className="username">
-            <label>Username</label>
-            <input type="text" name="username" id="" placeholder="ur name" />
-          </div>
-          <div className="email">
-            <label>email</label>
-            <input type="email" name="emali" id="" placeholder="ur email" />
-          </div>
-          <div className="password">
-            <label>password</label>
-            <input
-              type="password"
-              name="password"
-              id=""
-              placeholder="ur password"
-            />
-					</div>
-					<button type="submit">Submit</button>
-        </div>
+    <div className="App">
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+        <h2>Create an account</h2>
+        <input
+          {...register("userName", {
+            required: "Username is Required...",
+            minLength: {
+              value: 3,
+              message: "Username must be atleast 3 characters long...",
+            },
+            maxLength: {
+              value: 30,
+              message: "Username must be atmost 30 characters long...",
+            },
+          })}
+          placeholder="Username"
+        />
+        <p>{errors.userName?.message}</p>
+        <input
+          {...register("email", {
+            required: "Email is Required...",
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "Email must be valid",
+            },
+          })}
+          placeholder="Email"
+        />
+        <p>{errors.email?.message}</p>
+        <input
+          {...register("password", {
+            required: "Password is Required...",
+            pattern: {
+              value:
+                /^(?=.*[0-9])(?=.*[!@#$%^&*.,])[a-zA-Z0-9!@#$%^&*.,]{6,16}$/,
+              message:
+                "Password Must Contain Atleast 6 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character",
+            },
+          })}
+          placeholder="Password"
+        />
+        <p>{errors.password?.message}</p>
+        <select
+          {...register("gender", {
+            required: "Gender is Required...",
+          })}
+        >
+          <option value="">Select Gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="other">Other</option>
+        </select>
+        <p>{errors.gender?.message}</p>
+        <input type="Submit" />
       </form>
     </div>
   );
-};
+}
 
 export default Form;

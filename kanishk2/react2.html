@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>reactjs Search Results</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+      </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const Data = [
+        {
+          title: "Prop1",
+          
+        },
+        {
+          title: "Prop2",
+         
+        },
+        {
+          title: "Prop3",
+         
+        },
+      ];
+
+      function Card(props) {
+        return (
+          <div>
+              <h3>{props.title}</h3>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <section>
+            {Data.map((item,index) => (<Card key={index} title={item.title} />) )}
+          </section>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

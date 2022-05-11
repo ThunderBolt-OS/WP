@@ -15,7 +15,7 @@ function validate() {
     return false;
   }
   if (subject.length < 10) {
-    text = "Please Enter Correct Subject";
+    text = "Please Enter Correct Subject With More than 10 Characters";
     error_message.innerHTML = text;
     return false;
   }
