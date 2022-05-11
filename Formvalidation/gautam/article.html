@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<head>
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm&family=EB+Garamond:ital@0;1&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>Article</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js"></script>
+</head>
+<body>
+    <form id="comment-box" onsubmit="return validateCommentBox()">
+        <div class="contact">
+            <div class="name">
+                <label for="name" required>Name</label> <br />
+                <input type="text" id="name" name="name" />
+            </div>
+            <div class="email">
+                <label for="email" required>Email</label> <br />
+                <input type="text" id="email" name="email" />
+            </div>
+        </div>
+        <div class="rating">
+            <input type="radio" id="inaccurate" name="rating" />
+            <label for="inaccurate">Inaccurate</label> <br />
+            <input type="radio" id="decent" name="rating" />
+            <label for="decent">Decent</label> <br />
+            <input type="radio" id="good" name="rating" />
+            <label for="good">Good</label> <br />
+            <input type="radio" id="excellent" name="rating" />
+            <label for="excellent">Excellent</label> <br />
+        </div>
+        <div class="feedback">
+            <label for="comment">Comment</label> <br />
+            <input type="text" id="comment" name="comment" placeholder="Additional remarks"/>
+        </div>
+        <p class="helper-msg"></p>
+        <input type="submit" id="submit" />
+    </form>
+</body>
+</html>
